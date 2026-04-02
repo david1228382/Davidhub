@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TERMINAL JUANGRIEGO</title>
+    <style>
+        body { background: black; color: #0f0; font-family: monospace; padding: 50px; text-align: center; }
+        .caja { border: 2px solid #0f0; padding: 20px; display: inline-block; box-shadow: 0 0 15px #0f0; }
+        button { background: #0f0; color: black; border: none; padding: 10px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="caja">
+        <h1>> SISTEMA OPERATIVO ACTIVO</h1>
+        <p>Nodo: Isla de Margarita</p>
+        <p id="msg">> Esperando orden...</p>
+        <button onclick="alert('¡ACCESO CONCEDIDO!')">ENTRAR AL SISTEMA</button>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SISTEMA MARGARITA v2.0</title>
+    <style>
+        body { background: black; color: #0f0; font-family: monospace; overflow: hidden; }
+        .box { border: 2px solid #0f0; padding: 20px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0,0,0,0.8); z-index: 10; box-shadow: 0 0 20px #0f0; }
+        canvas { position: fixed; top: 0; left: 0; }
+        button { background: #0f0; border: none; padding: 10px; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <canvas id="m"></canvas>
+    <div class="box">
+        <h2>> TERMINAL_RESTAURADA</h2>
+        <p id="t">Esperando comando...</p>
+        <button onclick="document.getElementById('t').innerText='ACCESO TOTAL'">RECONECTAR</button>
+    </div>
+    <script>
+        const c = document.getElementById('m'), x = c.getContext('2d');
+        c.width = window.innerWidth; c.height = window.innerHeight;
+        const s = Array(200).fill(0);
+        function d() {
+            x.fillStyle = "rgba(0,0,0,0.05)"; x.fillRect(0,0,c.width,c.height);
+            x.fillStyle = "#0f0";
+            s.forEach((y, i) => {
+                x.fillText(String.fromCharCode(Math.random()*128), i*15, y);
+                s[i] = y > c.height || y > Math.random()*10000 ? 0 : y + 15;
+            });
+        }
+        setInterval(d, 50);
+    </script>
+</body>
+</html>

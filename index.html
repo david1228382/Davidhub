@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TERMINAL JUANGRIEGO</title>
+    <style>
+        body { background: black; color: #0f0; font-family: monospace; padding: 50px; text-align: center; }
+        .caja { border: 2px solid #0f0; padding: 20px; display: inline-block; box-shadow: 0 0 15px #0f0; }
+        button { background: #0f0; color: black; border: none; padding: 10px; cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="caja">
+        <h1>> SISTEMA OPERATIVO ACTIVO</h1>
+        <p>Nodo: Isla de Margarita</p>
+        <p id="msg">> Esperando orden...</p>
+        <button onclick="alert('¡ACCESO CONCEDIDO!')">ENTRAR AL SISTEMA</button>
+    </div>
+</body><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRAGON BALL HUB - MARGARITA</title>
+    <style>
+        :root { 
+            --dbz-orange: #ff8c00; 
+            --dbz-blue: #0047ab; 
+            --bg-dark: #0a0a0a; 
+        }
+        
+        body { 
+            background-color: var(--bg-dark); 
+            color: white; 
+            font-family: 'Arial Black', sans-serif;
+            margin: 0; text-align: center;
+        }
+
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.alphacoders.com/605/605331.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            height: 300px;
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center;
+            border-bottom: 5px solid var(--dbz-orange);
+        }
+
+        h1 { 
+            font-size: 2.5rem; 
+            color: var(--dbz-orange);
+            text-shadow: 3px 3px 0px var(--dbz-blue), 0 0 20px rgba(255,140,0,0.8);
+            margin: 0;
+        }
+
+        .container { padding: 30px; }
+
+        .btn-dbz {
+            display: block; width: 85%; max-width: 350px;
+            margin: 15px auto; padding: 15px;
+            background: var(--dbz-blue); 
+            color: white; 
+            text-decoration: none;
+            font-weight: bold; 
+            border-radius: 10px;
+            border: 2px solid var(--dbz-orange);
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-dbz:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--dbz-orange);
+            background: var(--dbz-orange);
+            color: black;
+        }
+
+        .radar-box {
+            border: 2px dashed #0f0;
+            padding: 10px;
+            display: inline-block;
+            margin-top: 20px;
+            color: #0f0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>DRAGON BALL PORTAL</h1>
+        <p style="color: yellow;">¡Elevando el Ki en Juangriego!</p>
+    </header>
+
+    <div class="container">
+        <a href="https://dragonball.news/es" class="btn-dbz" target="_blank">📰 Noticias Oficiales</a>
+        <a href="https://www.dbzgames.org/" class="btn-dbz" target="_blank">🎮 Juegos de DBZ</a>
+        <a href="https://animeflv.net/browse?q=dragon+ball" class="btn-dbz" target="_blank">📺 Ver Episodios</a>
+        
+        <div class="radar-box">
+            > BUSCANDO ESFERAS DEL DRAGÓN...<br>
+            [||||||||||] 100% DETECTADO
+        </div>
+    </div>
+
+    <script>
+        console.log("¡Kame Hame Ha! Página cargada.");
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE L MUSIC - JUANGRIEGO</title>
+    <style>
+        :root { --trap-red: #ff0000; --trap-gold: #ffd700; --bg-black: #050505; }
+        body { background: var(--bg-black); color: white; font-family: 'Impact', sans-serif; text-align: center; margin: 0; padding: 20px; }
+        
+        .player-container {
+            background: #111;
+            border: 2px solid var(--trap-red);
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 450px;
+            margin: 20px auto;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+        }
+
+        .cover-art {
+            width: 200px; height: 200px;
+            background: url('https://api.dicebear.com/7.x/shapes/svg?seed=Trap&backgroundColor=b6e3f4');
+            margin: 0 auto 15px;
+            border: 3px solid var(--trap-gold);
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        h2 { font-size: 1.2rem; color: var(--trap-gold); text-transform: uppercase; letter-spacing: 2px; }
+
+        .controls button {
+            background: var(--trap-red); color: white;
+            border: none; padding: 12px 20px;
+            border-radius: 5px; font-weight: bold;
+            cursor: pointer; margin: 5px; font-size: 1rem;
+        }
+
+        .playlist {
+            text-align: left; margin-top: 25px;
+            max-height: 250px; overflow-y: auto;
+            border-top: 2px solid #222;
+        }
+
+        .track {
+            padding: 12px; border-bottom: 1px solid #222;
+            cursor: pointer; display: flex; justify-content: space-between;
+        }
+
+        .track:hover { background: #1a1a1a; color: var(--trap-red); }
+
+        .artist-tag { font-size: 0.8rem; color: #777; }
+    </style>
+</head>
+<body>
+
+    <div class="player-container">
+        <div class="cover-art" id="disco">🎧</div>
+        <h2 id="current-title">Siguiente en la fila...</h2>
+        
+        <audio id="main-audio"></audio>
+
+        <div class="controls">
+            <button onclick="togglePlay()">⏯ PLAY/PAUSE</button>
+            <button onclick="stopTrack()">⏹ STOP</button>
+        </div>
+
+        <div class="playlist">
+            <div class="track" onclick="playSong('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', 'ROA - Privado')">
+                <span>🔥 Privado</span> <span class="artist-tag">ROA</span>
+            </div>
+            <div class="track" onclick="playSong('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3', 'HADES66 - Malas Decisiones')">
+                <span>💀 Malas Decisiones</span> <span class="artist-tag">HADES66</span>
+            </div>
+            <div class="track" onclick="playSong('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3', 'LUAR LA L - Pacto')">
+                <span>🩸 Pacto</span> <span class="artist-tag">LUAR LA L</span>
+            </div>
+            <div class="track" onclick="playSong('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3', 'La L 
+Le puse una sombra roja (glow) a la caja para que combine con el estilo de Luar La L y Hades66. Si le quieres meter más efectos, podemos hacer que

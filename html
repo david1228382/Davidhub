@@ -1,0 +1,88 @@
+import Flask, render_template, request
+import requests
+
+app = Flask(__name__)
+
+@app.route('/')
+def inicio():
+    return "<h1>Panel Admin Roblox - Activo</h1><p>Escribe el ID del usuario en la URL para probar.</p>"
+
+@app.route('/user/<int:user_id>')
+def get_user(user_id):
+    # Consultamos la API oficial de Roblox
+    url = f"https://users.roblox.com/v1/users/{user_id}"
+    response = requests.get(url)
+    
+    if response.status_code == 200:
+        data = response.json()
+        return f"""
+        <html>
+            <body style="font-family: sans-serif; background: #222; color: white;">
+                <h2>Info del Usuario</h2>
+                <p><b>Username:</b> {data.get('name')}</p>
+                <p><b>DisplayName:</b> {data.get('displayName')}</p>
+                <p><b>Descripción:</b> {data.get('description')}</p>
+                <hr>
+                <button onclick="alert('Acción de admin ejecutada')">Banear (Simulación)</button>
+            </body>
+        </html>
+        """
+    return "Usuario no encontrado", 404
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)
+3. Cómo lanzarlo
+Para poner a valer el panel, corre esto en tu terminal de Ubuntu:
+
+Bash
+python3 app.py
+4. Cómo entrar
+Abre el navegador de tu cel y pon:
+http://localhost:8080/user/1
+(Cambia el "1" por cualquier ID de Roblox para ver la magia).
+
+¿Qué sigue para que quede "criminal"?
+Esto es solo el esqueleto. Para que sea un panel de administración real, podrías:
+
+Añadir una Base de Datos (SQLite): Para guardar una "lista negra" de usuarios reportados.
+
+Webhooks de Discord: Para que cuando presiones un botón en tu panel, mande una alerta a tu grupo de moderación.
+
+Diseño con Bootstrap: Para que no parezca una página de los años 90 y se vea bien de pinga en el celular.
+
+¿Te lanzo el código para meterle una interfaz más bonita con botones de colores y tablas?
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel Roblox</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #121212; color: #e0e0e0; }
+        .card { background-color: #1e1e1e; border: 1px solid #333; }
+        .btn-danger { background-color: #ff4444; border: none; }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4 text-danger">Roblox Admin Dashboard</h2>
+        <div class="card p-4 shadow">
+            <h4>Gestión de Usuario</h4>
+            <hr style="background-color: #444;">
+            <div class="row">
+                <div class="col-8">
+                    <p><strong>Username:</strong> {{ name }}</p>
+                    <p><strong>ID:</strong> {{ user_id }}</p>
+                    <p><strong>Status:</strong> <span class="badge bg-success">Activo</span></p>
+                </div>
+            </div>
+            <div class="mt-4 d-flex gap-2">
+                <button class="btn btn-warning btn-sm">Advertencia</button>
+                <button class="btn btn-danger btn-sm">Banear Usuario</button>
+                <button class="btn btn-secondary btn-sm">Ver Logs</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

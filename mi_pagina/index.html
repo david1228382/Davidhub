@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Linux de Tu Nombre</title>
+    <style>
+        body { font-family: sans-serif; background-color: #1a1a1a; color: #ffffff; padding: 20px; }
+        header { border-bottom: 2px solid #e67e22; padding-bottom: 10px; margin-bottom: 20px; }
+        h1 { color: #e67e22; }
+        .comando { background-color: #333; padding: 5px 10px; border-radius: 5px; color: #2ecc71; font-family: monospace; }
+        section { background: #252525; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
+        footer { font-size: 0.8em; color: #888; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Guía de Linux - Por [Tu Nombre]</h1>
+        <p>¡Hablame, pana! Aquí te enseño a moverte en la terminal como un duro.</p>
+    </header>
+
+    <section>
+        <h2>1. Los Mandamientos</h2>
+        <p>Para ver qué hay en la carpeta: <span class="comando">ls</span></p>
+        <p>Para entrar en una carpeta: <span class="comando">cd nombre_carpeta</span></p>
+        <p>Para saber quién eres: <span class="comando">whoami</span></p>
+    </section>
+
+    <section>
+        <h2>2. Poder de Root</h2>
+        <p>En Linux, el que manda es el <b>Root</b>. Con <span class="comando">apt update</span> mantienes todo al día para que no te tire errores locos.</p>
+    </section>
+
+    <footer>
+        <p>Página creada en Termux - 2026</p>
+    </footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S1ST3M_L1NUX_BY_[Tu Nombre]</title>
+    <style>
+        /* Estilos Globales - Efecto Matrix */
+        body { 
+            background-color: #000000; 
+            color: #00FF00; 
+            font-family: 'Courier New', Courier, monospace; 
+            margin: 0; padding: 20px;
+            overflow-x: hidden;
+            text-shadow: 0 0 5px #00FF00;
+        }
+
+        /* Animación de escaneo de línea */
+        body::before {
+            content: " ";
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0.15;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            border: 2px solid #00FF00;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            background-color: rgba(0, 20, 0, 0.8);
+        }
+
+        /* Título Principal - Efecto de parpadeo */
+        h1 { 
+            text-align: center; 
+            text-transform: uppercase; 
+            border-bottom: 2px solid #00FF00; 
+            padding-bottom: 10px;
+            animation: flicker 2s infinite;
+        }
+
+        .user-info { 
+            color: #88ff88; 
+            margin-bottom: 30px; 
+            text-align: center;
+            border: 1px dashed #00FF00;
+            padding: 10px;
+        }
+
+        h3 {
+            color: #fff;
+            background-color: #004400;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        /* Caja de Comandos - Estilo Terminal Antigua */
+        .command-box {
+            background-color: #050505;
+            border: 1px solid #00AA00;
+            padding: 15px;
+            margin: 15px 0;
+            color: #00FF00;
+            position: relative;
+        }
+
+        .command-box::before {
+            content: ">_ ";
+            color: #fff;
+            font-weight: bold;
+        }
+
+        b { color: #fff; font-weight: bold; }
+        i { color: #888; }
+
+        /* Efecto de escritura */
+        .typing {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #00FF00;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        footer { 
+            margin-top: 40px; 
+            text-align: center; 
+            font-size: 0.8em; 
+            color: #004400;
+            border-top: 1px solid #004400;
+            padding-top: 10px;
+        }
+
+        /* Animaciones CSS */
+        @keyframes flicker {
+            0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% { opacity: 1; }
+            20%, 21.999%, 63%, 63.999%, 65%, 69.999% { opacity: 0.4; }
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #00FF00; }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="typing">
+        <h1>ACCESS_GRANTED::LINUX_KERNEL_[Tu Nombre]</h1>
+    </div>
+
+    <div class="user-info">
+        <p>SESSION: <b>Active</b> | USER: <b>root@localhost</b> | NET: <b>Encrypted</b></p>
+        <p><i>"Initialize core protocols... Reading manuals... Hack the planet."</i></p>
+    </div>
+
+    <h3>// CORE_COMMANDS</h3>
+    <div class="command-box">
+        <b>ls -la</b> -> Revela la verdad (Muestra archivos ocultos).<br>
+        <b>cd ~</b> -> Volver a la base (Va al directorio home).<br>
+        <b>clear</b> -> Limpia el rastro (Borra la pantalla).
+    </div>
+
+    <h3>// SYS_ADMIN</h3>
+    <div class="command-box">
+        <b>pkg install nano</b> -> Instala el editor de texto.<br>
+        <b>top</b> -> Monitor de procesos (Mira qué consume memoria).<br>
+        <b>history -c</b> -> Borra tu historial de comandos.
+    </div>
+
+    <h3>// NETWORK_TOOLS</h3>
+    <div class="command-box">
+        <b>ifconfig</b> -> Ver tu IP local.<br>
+        <b>curl ifconfig.me</b> -> Ver tu IP pública real.
+    </div>
+
+    <footer>
+        [S1ST3M_LOG] V.2.6 - Termux Environment - Nueva Esparta.
+    </footer>
+</div>
+
+</body>
+</html>

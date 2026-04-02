@@ -1,0 +1,5 @@
+[user]
+	email = vzla.scripts.dev@gmail.com
+	name = David
+[credential]
+	helper = store
