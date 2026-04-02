@@ -1,0 +1,101 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("MVS VENEZUELA - GOD MODE", "Midnight")
+
+local Players = game:GetService("Players")
+local User = Players.LocalPlayer
+
+-- FUNCIÓN PARA BUSCAR AL ENEMIGO MÁS CERCANO
+local function GetClosest()
+    local target = nil
+    local dist = math.huge
+    for _, v in pairs(Players:GetPlayers()) do
+        if v ~= User and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+            local d = (User.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude
+            if d < dist then target = v; dist = d end
+        end
+    end
+    return target
+end
+
+-- 1. TAB DE COMBATE (SILENT + AUTO KILL)
+local Combat = Window:NewTab("Combate")
+local CSec = Combat:NewSection("Aniquilación Total")
+
+_G.SilentAim = true
+CSec:NewToggle("Perfect Silent Aim", "Balas que nunca fallan", function(state)
+    _G.SilentAim = state
+end)
+
+_G.AutoKill = false
+CSec:NewToggle("Auto Kill (Gatillo Automático)", "Dispara solo al enemigo", function(state)
+    _G.AutoKill = state
+    task.spawn(function()
+        while _G.AutoKill do
+            task.wait(0.1) -- Velocidad de escaneo
+            local t = GetClosest()
+            if t and t.Character and User.Character:FindFirstChildOfClass("Tool") then
+                -- Si el enemigo está en rango, el script activa tu arma sola
+                User.Character:FindFirstChildOfClass("Tool"):Activate()
+            end
+        end
+    end)
+end)
+
+-- HOOK PARA EL SILENT AIM (PERFECTO)
+local old; old = hookmetamethod(game, "__index", function(self, k)
+    if k == "Hit" and _G.SilentAim and not checkcaller() then
+        local t = GetClosest()
+        if t then return t.Character.Head.CFrame end
+    end
+    return old(self, k)
+end)
+
+-- 2. TAB DE VISUALES (ESP)
+local Visuals = Window:NewTab("Visuales")
+local VSec = Visuals:NewSection("Wallhack Rojo")
+
+_G.ESP = false
+VSec:NewToggle("Ver Enemigos (ESP)", "Siluetas rojas tras paredes", function(state)
+    _G.ESP = state
+    task.spawn(function()
+        while _G.ESP do
+            task.wait(1)
+            for _, v in pairs(Players:GetPlayers()) do
+                if v ~= User and v.Character and not v.Character:FindFirstChild("Highlight") then
+                    local h = Instance.new("Highlight", v.Character)
+                    h.FillColor = Color3.fromRGB(255, 0, 0)
+                end
+            end
+        end
+    end)
+end)
+
+-- 3. TAB DE EVENTO (PASCUA - AUTO FARM)
+local EventTab = Window:NewTab("Pascua")
+local ESec = EventTab:NewSection("Recolector de Huevos")
+
+_G.AutoFarm = false
+ESec:NewToggle("Auto Farm Activo", "Farmea huevos solo", function(state)
+    _G.AutoFarm = state
+    task.spawn(function()
+        while _G.AutoFarm do
+            task.wait(0.3)
+            for _, v in pairs(workspace:GetDescendants()) do
+                if v:IsA("TouchTransmitter") and (v.Parent.Name:find("Egg") or v.Parent.Name:find("Huevo")) then
+                    User.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+                    break 
+                end
+            end
+        end
+    end)
+end)
+
+-- SONIDO "LINDA MUJER"
+local function Musica()
+    local s = Instance.new("Sound", game.SoundService)
+    s.SoundId = "rbxassetid://9114156630" 
+    s.Volume = 5
+    s:Play()
+end
+
+Musica()
