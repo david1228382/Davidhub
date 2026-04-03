@@ -30,24 +30,32 @@ Section2:NewButton("Marcar Base Actual", "Guarda tu sitio seguro", function()
         print("Base de Ohio guardada.")
     end
 end)
+Section2:NewToggle("Modo Brainrot Activo", "Escape de Ohio", function(state)
+    if state then
+        local char = game.Players.LocalPlayer.Character
+        local hrp = char:FindFirstChild("HumanoidRootPart")
 
-Section2:NewToggle("Modo Brainrot Activo", "Si lo activas, te vas a la base", function(state)
-    HasBrainrot = state
-    local char = game.Players.LocalPlayer.Character
-    local hrp = char:FindFirstChild("HumanoidRootPart")
-    
-    if state and hrp then
-        -- 1. Teleport Inmediato
-        hrp.CFrame = MyBasePosition
-        print("Teleport Base: Activado")
-        
-        -- 2. Efecto Visual y Sonido
-        local s = Instance.new("Sound", game.Workspace)
-        s.SoundId = "rbxassetid://130762211" 
-        s:Play()
+        if hrp then
+            -- A) PRIMER SALTO: Te mueve a la base
+            hrp.CFrame = MyBasePosition 
+            
+            -- B) ESPERA: Le da tiempo al internet de registrar tu posición
+            task.wait(0.8) 
+            
+            -- C) SEGUNDO SALTO: Por si acaso hubo lag
+            hrp.CFrame = MyBasePosition
+            
+            -- D) EL KICK: Ahora sí te saca, después de 1.5 segundos
+            task.delay(1.5, function()
+                game.Players.LocalPlayer:Kick("DAVIDHUB V2: Brainrot completado. El Sigma escapó.")
+            end)
+        end
+    end
+end)
 
         -- 3. AUTO-KICK (Desconexión del Servidor)
         task.wait(1.5) -- Un pequeño delay para que veas que llegaste a la base
         game.Players.LocalPlayer:Kick("DAVIDHUB V2: Brainrot completado. El Sigma abandonó Ohio.")
     end
 end)
+local MyBasePosition = CFrame.new(150, 25, -300) -- Cambia estos números por los de tu sitio seguro
